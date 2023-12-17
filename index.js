@@ -16,13 +16,13 @@ mongoose.connect(process.env.MONGO_URI, {
 
 app.use(bodyParser.json());
 
-app.post('/api/user', (req, res) => {
+app.post('/api/v1/user', (req, res) => {
   const user = new User(req.body);
   user.save()
     .then(user => res.json(user))
     .catch(err => res.status(400).json('Error: ' + err));
 });
-app.get('/api/users', (req, res) => {
+app.get('/api/v1/users', (req, res) => {
   User.find()
     .then(users => res.json(users))
     .catch(err => res.status(400).json('Error: ' + err));
