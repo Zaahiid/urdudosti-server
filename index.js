@@ -16,6 +16,10 @@ app.get('/', (req, res) => {
   res.send('Hello World!, This is my first server deployment and I excited about it 😍🥳 ')
 })
 
+app.get('/about', (req, res) => {
+  res.send('About Page, 😍🥳 ')
+})
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port} 😎`)
 })
