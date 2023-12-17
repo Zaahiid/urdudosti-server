@@ -13,7 +13,7 @@ mongoose.connect(process.env.MONGO_URI, {
 
 
 app.get('/', (req, res) => {
-  res.send('Hello World!')
+  res.send('Hello World!, This is my first server deployment and I excited about it 😍🥳 ')
 })
 
 app.listen(port, () => {
