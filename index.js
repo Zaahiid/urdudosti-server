@@ -1,6 +1,9 @@
 require('dotenv').config()
 const mongoose = require('mongoose')
 const express = require('express')
+const bodyParser = require('body-parser');
+
+const User = require('./models/User');
 const app = express()
 const port = process.env.PORT || 8000;
 
@@ -11,6 +14,19 @@ mongoose.connect(process.env.MONGO_URI, {
 .then(() => console.log("MongoDB Connected 😍"))
 .catch(err => console.log(err));
 
+app.use(bodyParser.json());
+
+app.post('/api/user', (req, res) => {
+  const user = new User(req.body);
+  user.save()
+    .then(user => res.json(user))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+app.get('/api/users', (req, res) => {
+  User.find()
+    .then(users => res.json(users))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
 
 app.get('/', (req, res) => {
   res.send('Hello World!, This is my first server deployment and I excited about it 😍🥳 ')
