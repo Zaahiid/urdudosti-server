@@ -29,7 +29,7 @@ app.get('/api/v1/users', (req, res) => {
 });
 
 app.get('/', (req, res) => {
-  res.send('Hello World!, This is my first server deployment and I excited about it 😍🥳 ')
+  res.send('Server for Urdu Dosti 😍🥳 ')
 })
 
 app.get('/about', (req, res) => {
