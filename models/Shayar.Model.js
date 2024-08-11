@@ -1,35 +1,50 @@
 const { default: mongoose } = require("mongoose");
 
-
-const shayarSchema = new mongoose.Schema({
-    nameUR :{
-        type: String,
-        required: true
+const shayarSchema = new mongoose.Schema(
+  {
+    nameUR: {
+      type: String,
+      required: true,
     },
-    nameEN :{
-        type: String,
-        required: true
+    nameEN: {
+      type: String,
+      required: true,
     },
-    description :{
-        type: String,
-        required: true
+    descriptionUR: {
+      type: [String],
+      default: [],
     },
-    image :{
-        type: String,
+    descriptionEN: {
+      type: [String],
+      default: [],
     },
-    dateOfBirthGregorian :{
-        type: String,
+    image: {
+      type: String,
+      default: "",
     },
-    dateOfBirthHijri :{
-        type: String,
+    dateOfBirthGregorian: {
+      type: Date,
+      default: null,
     },
-    placeOfBirth :{
-        type: String,
+    dateOfBirthHijri: {
+      type: Date,
+      default: null,
     },
-    dateOfDeathGregorian :{
-        type: String,
+    placeOfBirth: {
+      type: String,
+      default: "",
     },
-    dateOfDeathHijri :{
-        type: String,
+    dateOfDeathGregorian: {
+      type: Date,
+      default: null,
     },
-})
+    dateOfDeathHijri: {
+      type: Date,
+      default: null,
+    },
+  },
+  {
+    versionKey: true,
+    timestamps: true,
+  }
+);
